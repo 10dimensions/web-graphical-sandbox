@@ -86,23 +86,21 @@ function main() {
   const HemLight = new THREE.HemisphereLight(skyColor, groundColor, intensity);
   //scene.add(HemLight);
 
-
-//////////   DIR LIGHT ///////////////////////////////////
+  //////////   DIR LIGHT ///////////////////////////////////
 
   const dcolor = 0xffffff;
   const dintensity = 1;
   const Dirlight = new THREE.DirectionalLight(color, intensity);
   Dirlight.position.set(0, 10, 0);
   Dirlight.target.position.set(-5, 0, 0);
-  
+
   const helper = new THREE.DirectionalLightHelper(Dirlight);
-  
+
   //scene.add(Dirlight);
   //scene.add(Dirlight.target);
   //scene.add(helper);
 
-
-//////////   POINT LIGHT ///////////////////////////////////
+  //////////   POINT LIGHT ///////////////////////////////////
 
   const pcolor = 0xffffff;
   const pintensity = 1;
@@ -110,24 +108,21 @@ function main() {
   plight.position.set(0, 10, 0);
 
   const phelper = new THREE.PointLightHelper(plight);
-  
+
   //scene.add(plight);
   //scene.add(phelper);
 
-
-//////////   SPOT LIGHT //////////////////////////////
+  //////////   SPOT LIGHT //////////////////////////////
 
   // const hcolor = 0xFFFFFF;
   // const hintensity = 1;
   // const hlight = new THREE.SpotLight(hcolor, hintensity);
-  
+
   // const hhelper = new THREE.SpotLightHelper(hlight);
 
   // scene.add(hlight);
   // scene.add(hlight.target);
   // scene.add(hhelper);
-
-
 
   function makeXYZGUI(gui, vector3, name, onChangeFn) {
     const folder = gui.addFolder(name);
@@ -161,8 +156,8 @@ function main() {
   gui.addColor(new ColorGUIHelper(Dirlight, "color"), "value").name("color");
   gui.add(Dirlight, "intensity", 0, 2, 0.01);
 
-  makeXYZGUI(gui, Dirlight.position, 'position', updateLight);
-  makeXYZGUI(gui, Dirlight.target.position, 'target', updateLight);
+  makeXYZGUI(gui, Dirlight.position, "position", updateLight);
+  makeXYZGUI(gui, Dirlight.target.position, "target", updateLight);
 
   gui.addColor(new ColorGUIHelper(plight, "color"), "value").name("color");
   gui.add(plight, "intensity", 0, 2, 0.01);
